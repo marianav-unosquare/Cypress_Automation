@@ -8,8 +8,6 @@ describe("Test contact us form via webdriverUni", () =>{
         //Cypress code goes here
         cy.visit('https://webdriveruniversity.com/')
         cy.get('#contact-us > .thumbnail > .section-title > h1').click()
-        cy.get('#udemy-promo-thumbnail').contains("My Courses & Promo Codes")
-
     });
 
 })

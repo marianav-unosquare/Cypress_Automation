@@ -11,6 +11,14 @@
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
     "cucumber": "^6.0.7",
-    "cypress": "^12.6.0"
+    "cypress": "^12.6.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^9.0.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions"
   }
 }

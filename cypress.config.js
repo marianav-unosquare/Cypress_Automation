@@ -16,8 +16,8 @@ module.exports = defineConfig({
       on('file:preprocessor', cucumber())
       // implement node event listeners here
     },
-    // specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}"
-    specPattern: "cypress/e2e/cucumber-automation/features/*.feature"
+    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}"
+    //specPattern: "cypress/e2e/cucumber-automation/features/*.feature"
   },
  
 });

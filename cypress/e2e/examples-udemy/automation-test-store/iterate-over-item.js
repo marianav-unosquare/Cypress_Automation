@@ -6,7 +6,8 @@ describe('Log information of all hair products', () => {
         cy.visit('https://automationteststore.com')
         cy.get("a[href*='product/category&path=']").contains("Hair Care").click()
         cy.get('.fixed_wrapper .prdocutname').each(($el, index, $list) => {
-            cy.log("Index : " + index + " : " + $el.text()) //Locate all product headers and iterate. Iterate and show the index and the text of the item from that iteration
+            cy.log("Index : " + index + " : " + $el.text())
+            //Locate all product headers and iterate. Iterate and show the index and the text of the item from that iteration
           });
         });
     });

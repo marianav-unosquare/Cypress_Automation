@@ -8,7 +8,7 @@ After(()=>{
     cy.log("Finish test execution");
 })
 
-Given('I access the WebdriverUniversity Login Portal Page', () =>{
+Given('I access Amazon landing page', () =>{
 //My code here
     cy.visit("https://www.amazon.com/");
     cy.document().should('have.property', 'charset').and('eq', 'UTF-8'); //Attribute charset is active and has value of UFT-8
@@ -16,11 +16,12 @@ Given('I access the WebdriverUniversity Login Portal Page', () =>{
     cy.url().should('include', 'amazon.com');
 });
 
-When("I enter {word} to search for", (item)=>{
-    cy.get("#twotabsearchtextbox").type(item);
+When(/^I type an item ([^"]*) to search for$/, (item) => {
+cy.get("#twotabsearchtextbox").type(item)
 });
 
-And("And I click on search",()=>{
+
+And('I click on the search button',()=>{
     cy.get('#nav-search-submit-button').click();
 });
 
@@ -31,10 +32,13 @@ And("I click on the first item of the list",()=>{
 
 Then("I verify that the price is valid",()=>{
     //The price must be greater than 0 and not be null
+    // cy.get(':nth-child(2) > .a-span12 > .a-price > [aria-hidden="true"]').invoke('text').as('price')
+    // cy.get('@price').its('value').should('be.gt', 0)
+
     cy.get(':nth-child(2) > .a-span12 > .a-price > [aria-hidden="true"]').then($prices => {
-        $prices.text().split($);
-        if($prices.text() != null && $prices==0){
-        }
+        var price = $prices.text()
+        price.split("$")
+        assert.isNotNull(price)
       });
 });
 

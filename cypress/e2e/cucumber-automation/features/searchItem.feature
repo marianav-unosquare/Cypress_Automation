@@ -1,3 +1,4 @@
+@SearchItem
 Feature: Search items on Amazon
 
 Scenario Outline: Scenario Outline name: Search for different items on Amazon portal
@@ -10,5 +11,5 @@ Then I verify that the price is valid
 Examples:
 |item                     |
 |Iphone Pro Max phone     |
-# |Samsung Galaxy S23 phone |
-# |MacBook Air              |
+|Samsung Galaxy S23 phone |
+|MacBook Air              |

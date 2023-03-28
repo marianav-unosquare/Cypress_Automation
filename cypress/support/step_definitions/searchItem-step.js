@@ -26,19 +26,21 @@ And('I click on the search button',()=>{
 });
 
 And("I click on the first item of the list",()=>{
-    //Click on the second one as the first one is an add
+    //Iterate over a list of products and chose the second one (since the first one can be an add)
     cy.get('[data-asin="B0BGYG5GSJ"] > :nth-child(1) > .s-widget-container > .s-card-container > :nth-child(1) > :nth-child(1) > .sg-col-8-of-16 > :nth-child(1) > .a-spacing-top-small > .puis-padding-right-small > .a-size-mini > .a-link-normal > .a-size-medium').click()
 });
 
 Then("I verify that the price is valid",()=>{
     //The price must be greater than 0 and not be null
-    // cy.get(':nth-child(2) > .a-span12 > .a-price > [aria-hidden="true"]').invoke('text').as('price')
+    // Using Alias
+    // cy.get('#apex_desktop_renewedTier2AccordionRow > #corePrice_desktop > .a-section > .a-lineitem > tbody > tr > .a-span12 > .a-price > [aria-hidden="true"]').invoke('text').as('price')
     // cy.get('@price').its('value').should('be.gt', 0)
 
-    cy.get(':nth-child(2) > .a-span12 > .a-price > [aria-hidden="true"]').then($prices => {
-        var price = $prices.text()
-        price.split("$")
-        assert.isNotNull(price)
+    cy.get('#apex_desktop_renewedTier2AccordionRow > #corePrice_desktop > .a-section > .a-lineitem > tbody > tr > .a-span12 > .a-price > [aria-hidden="true"]').then($prices => {
+        const priceArr = $prices.text().split("$");
+        let pricesInt = parseInt(priceArr[1]);
+        assert.isNotNull(pricesInt)
+        assert.isAbove(pricesInt, 0, "Price should be greater than $0")
       });
 });
 

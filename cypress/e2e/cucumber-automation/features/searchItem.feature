@@ -11,5 +11,5 @@ Then I verify that the price is valid
 Examples:
 |item                     |
 |Iphone Pro Max phone     |
-|Samsung Galaxy S23 phone |
-|MacBook Air              |
+|Iphone 12 phone          |
+|macbook pro 2022         |

@@ -16,8 +16,14 @@ module.exports = defineConfig({
       on('file:preprocessor', cucumber())
       // implement node event listeners here
     },
-    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}"
+    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
+    excludeSpecPattern:"cypress/e2e/other/*.js",
     //specPattern: "cypress/e2e/cucumber-automation/features/*.feature"
+    chromeWebSecurity: false,
+    env:{
+      webdriveruni_homepage: "https://www.webdriveruniversity.com",
+      first_name: "Sarah"
+    }
   },
  
 });

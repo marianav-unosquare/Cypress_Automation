@@ -1,8 +1,14 @@
+import HomePage_PO from '../../support/pageObjects/webdriver-uni/HomePage_PO';
 /// <reference types="Cypress" />
 
-// const { get } = require("cypress/types/lodash");
 
 describe("Test contact us form via webdriverUni", () =>{
+    
+    beforeEach(function(){
+        const homePage_PO = new HomePage_PO();
+        homePage_PO.visitHomepage();
+        homePage_PO.clickOn_ContactUs_Button();
+    })
 
     it("Should be able to sumbit a successful submission via contact us form", ()=>{
         //Cypress code goes here

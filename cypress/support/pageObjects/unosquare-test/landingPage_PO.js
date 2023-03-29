@@ -14,6 +14,11 @@ class landingPage_PO {
     clickSearchButton(){
         cy.get('#nav-search-submit-button').click();
     }
+
+    clickHamburguerMenu(){
+        cy.get('#nav-hamburger-menu').click();
+        
+    }
 };
 
 export default landingPage_PO;

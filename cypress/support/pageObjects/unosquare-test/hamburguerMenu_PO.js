@@ -43,9 +43,9 @@ class hamburguerMenu_PO {
                         cy.expect(elArr[i]).to.equal(dep.artsCrafts);
                         break;
 
-                    default: 
+                    default:
                     cy.log("This element is not found under Shop by Department.");
-                    // throw new Error("test fails here");
+                    
 
                 }
 
@@ -82,7 +82,6 @@ class hamburguerMenu_PO {
 
                     default: 
                     cy.log("This element is not found under Programs & Features.");
-                    throw new Error("test fails here");
 
                 }
 

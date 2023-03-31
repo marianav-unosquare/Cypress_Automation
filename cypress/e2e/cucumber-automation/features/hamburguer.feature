@@ -15,8 +15,8 @@ Then I verify that the elements on buscar por deparamento <dep> and Programa y f
 # Then I verify the element <neg> is NOT visible in buscar por departamento on the menu section
 
 Examples:
-|dep                 |prog              | neg        |
-|Electrónicos        |Tarjetas de Regalo|testElement |
+|dept                 |progm              | neg        |
+|Electronics          |Gift Cards         |testElement |
 # |dep.el1             |prog.tarjetasReg  | dep.el5 |
 # |dep.el2             |prog.shopBy       |         |
 # |dep.el3             |prog.amazonLive   |         |

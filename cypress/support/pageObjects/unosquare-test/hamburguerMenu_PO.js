@@ -1,31 +1,35 @@
-
-
 class hamburguerMenu_PO {
 
     verifyHamburguerMenuTitle() {
-        cy.xpath('//div[normalize-space()="digital content & devices"]').should('have.text', 'digital content & devices')
+        cy.xpath('//div[normalize-space()="digital content & devices"]').should('have.text', 'digital content & devices');
     };
 
     verifyHeadersPresent() {
         //ShopByDpt
         cy.get('#hmenu-content .hmenu.hmenu-visible .hmenu-item.hmenu-title').eq(1).invoke('text').as('shopByDpt');
+        cy.get('@shopByDpt').should('contain', 'shop by department');
         //prog&feat
         cy.get('#hmenu-content .hmenu.hmenu-visible .hmenu-item.hmenu-title').eq(2).invoke('text').as('progAndFeat');
+        cy.get('@progAndFeat').should('contain', 'programs & features');
         //all Headers from the hamburguer menu
         cy.get('#hmenu-content .hmenu.hmenu-visible .hmenu-item.hmenu-title').as('menuHeaders');
         cy.get('@menuHeaders').should('be.visible');
-        cy.get('@shopByDpt').should('contain', 'shop by department');
-        cy.get('@progAndFeat').should('contain', 'programs & features');
     };
 
     verifyElementsShopByDpt(dept, dep) {
+        var elArr = [];
+
         cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'shop by department')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'9']").each(($text) => {
             // cy.log($text.text());
             var i;
-            const elArr = [];
+            
+            cy.log(elArr)
             elArr.push($text.text());
+         
             for (i = 0; i < elArr.length; i++) {
                 cy.log("My array element : " + elArr);
+                cy.expect(elArr[i]).to.contain(dept);
+                // expect(elArr).to.contain(dept);
                 switch (dept) {
                     case (dept ==='Electronics'):
                         cy.expect(elArr[i]).to.equal(dep.electronics);
@@ -42,20 +46,21 @@ class hamburguerMenu_PO {
                     case (dept==='Arts & Crafts'):
                         cy.expect(elArr[i]).to.equal(dep.artsCrafts);
                         break;
-
-                    default:
-                    cy.log("This element is not found under Shop by Department.");
-                    
-
-                }
-
+                };
+               
+                cy.get(elArr[i]).should('have.text',dept);
             }
-
-        })
+            return elArr;
+           
+        }) 
+        return elArr;
+        cy.expect(elArr).to.contain(dept);
+        
     };
 
 
     verifyElementsProgramsFeatures(progm, prog) {
+        
         cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'programs & features')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'30']").each(($text) => {
             // cy.log($text.text());
             var i;
@@ -80,16 +85,12 @@ class hamburguerMenu_PO {
                         cy.expect(elArr[i]).to.equal(prog.intShop);
                         break;
 
-                    default: 
-                    cy.log("This element is not found under Programs & Features.");
-
                 }
 
             }
 
         });
     };
-
 }
 
 export default hamburguerMenu_PO;

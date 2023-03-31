@@ -1,6 +1,3 @@
-# const dep = require('../support/dataJson/**/BuscarPorDepartamento.json');
-# const prog = require('../support/dataJson/**/ProgramayFuncionalidades.json');
-
 @Hamburguer
 Feature: Verify Amazon's Hamburguer Left Menu
 
@@ -22,4 +19,4 @@ Then I verify that the elements on buscar por deparamento <dept> and Programa y 
 
 Examples:
 |dept                 |progm                  |
-|testElement          |                       |
+|testElement          |testElement            |

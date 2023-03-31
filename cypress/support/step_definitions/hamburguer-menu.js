@@ -29,8 +29,3 @@ Then(/^I verify that the elements on buscar por deparamento ([^"]*) and Programa
     hm_PO.verifyElementsProgramsFeatures(progm, prog);
 });
 
-
-Then(/^I verify the element ([^"]*) is NOT visible in buscar por departamento on the menu section$/, (neg) => {
-    //Iteration code
-});
-

@@ -18,7 +18,7 @@ class hamburguerMenu_PO {
         cy.get('@progAndFeat').should('contain', 'programs & features');
     };
 
-    verifyElementsShopByDpt(dep) {
+    verifyElementsShopByDpt(dept, dep) {
         cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'shop by department')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'9']").each(($text) => {
             // cy.log($text.text());
             var i;
@@ -26,24 +26,26 @@ class hamburguerMenu_PO {
             elArr.push($text.text());
             for (i = 0; i < elArr.length; i++) {
                 cy.log("My array element : " + elArr);
-                switch (elArr[i]) {
-                    case 'Electronics':
+                switch (dept) {
+                    case (dept ==='Electronics'):
                         cy.expect(elArr[i]).to.equal(dep.electronics);
                         break;
 
-                    case 'Computers':
+                    case (dept==='Computers'):
                         cy.expect(elArr[i]).to.equal(dep.computers);
                         break;
 
-                    case 'Smart Home':
+                    case (dept ==='Smart Home'):
                         cy.expect(elArr[i]).to.equal(dep.smartHome);
                         break;
 
-                    case 'Arts & Crafts':
+                    case (dept==='Arts & Crafts'):
                         cy.expect(elArr[i]).to.equal(dep.artsCrafts);
                         break;
 
-                    default: "This element is not found under Shop by Department.";
+                    default: 
+                    cy.log("This element is not found under Shop by Department.");
+                    // throw new Error("test fails here");
 
                 }
 
@@ -53,7 +55,7 @@ class hamburguerMenu_PO {
     };
 
 
-    verifyElementsProgramsFeatures(prog) {
+    verifyElementsProgramsFeatures(progm, prog) {
         cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'programs & features')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'30']").each(($text) => {
             // cy.log($text.text());
             var i;
@@ -61,24 +63,26 @@ class hamburguerMenu_PO {
             elArr.push($text.text());
             for (i = 0; i < elArr.length; i++) {
                 cy.log("My array element : " + elArr);
-                switch (elArr[i]) {
-                    case 'Gift Cards':
+                switch (progm) {
+                    case (progm==='Gift Cards'):
                         cy.expect(elArr[i]).to.equal(prog.giftC);
                         break;
 
-                    case 'Shop By Interest':
+                    case (progm==='Shop By Interest'):
                         cy.expect(elArr[i]).to.equal(prog.shopBy);
                         break;
 
-                    case 'Amazon Live':
+                    case (progm ==='Amazon Live'):
                         cy.expect(elArr[i]).to.equal(prog.amazonLive);
                         break;
 
-                    case 'International Shopping':
+                    case (progm === 'International Shopping'):
                         cy.expect(elArr[i]).to.equal(prog.intShop);
                         break;
 
-                    default: "This element is not found under Shop by Department.";
+                    default: 
+                    cy.log("This element is not found under Programs & Features.");
+                    throw new Error("test fails here");
 
                 }
 

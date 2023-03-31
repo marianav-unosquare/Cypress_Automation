@@ -20,12 +20,13 @@ When('I click on the left Menu', () => {
     lp_PO.clickHamburguerMenu();
 })
 
-Then(/^I verify that the elements on buscar por deparamento and Programa y funcionalidades are visible on the menu section$/, () => {
+Then(/^I verify that the elements on buscar por deparamento ([^"]*) and Programa y funcionalidades ([^"]*) are visible on the menu section$/, (dept, progm) => {
     //Iterate over the list until Buscar por Departamento
     hm_PO.verifyHamburguerMenuTitle();
     hm_PO.verifyHeadersPresent();
-    hm_PO.verifyElementsShopByDpt(dep);
-    hm_PO.verifyElementsProgramsFeatures(prog);
+    cy.log(dept);
+    hm_PO.verifyElementsShopByDpt(dept, dep);
+    hm_PO.verifyElementsProgramsFeatures(progm, prog);
 });
 
 

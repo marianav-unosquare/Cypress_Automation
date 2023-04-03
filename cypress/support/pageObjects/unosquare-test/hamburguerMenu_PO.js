@@ -29,7 +29,7 @@ class hamburguerMenu_PO {
             for (i = 0; i < elArr.length; i++) {
                 cy.log("My array element : " + elArr);
                 cy.expect(elArr[i]).to.contain(dept);
-                // expect(elArr).to.(dept);
+                // expect(elArr).to..include(dept);
                 switch (dept) {
                     case (dept ==='Electronics'):
                         cy.expect(elArr[i]).to.equal(dep.electronics);
@@ -53,10 +53,8 @@ class hamburguerMenu_PO {
             return elArr;
            
         }) 
-        cy.expect(elArr).to.contain(dept).then(($arr)=>{
-            return elArr;
-        });
-        
+
+            return elArr; 
     };
 
 

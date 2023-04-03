@@ -16,80 +16,43 @@ class hamburguerMenu_PO {
         cy.get('@menuHeaders').should('be.visible');
     };
 
-    verifyElementsShopByDpt(dept, dep) {
-        var elArr = [];
-
-        cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'shop by department')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'9']").each(($text) => {
-            // cy.log($text.text());
-            var i;
-            
-            cy.log(elArr)
-            elArr.push($text.text());//QUEREMOS RETORNAR EL ARREGLO?
-         
-            for (i = 0; i < elArr.length; i++) {
-                cy.log("My array element : " + elArr);
-                cy.expect(elArr[i]).to.contain(dept);
-                // expect(elArr).to..include(dept);
-                switch (dept) {
-                    case (dept ==='Electronics'):
-                        cy.expect(elArr[i]).to.equal(dep.electronics);
-                        break;
-
-                    case (dept==='Computers'):
-                        cy.expect(elArr[i]).to.equal(dep.computers);
-                        break;
-
-                    case (dept ==='Smart Home'):
-                        cy.expect(elArr[i]).to.equal(dep.smartHome);
-                        break;
-
-                    case (dept==='Arts & Crafts'):
-                        cy.expect(elArr[i]).to.equal(dep.artsCrafts);
-                        break;
-                };
-               
-                cy.get(elArr[i]).should('have.text',dept);
-            }
-            return elArr;
-           
-        }) 
-
-            return elArr; 
+    verifyElementsShopByDpt(dep) {
+        var myList=[];
+        cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'shop by department')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'9']")
+        .each(($text) => {
+        myList.push($text.text());
+        }).then(()=> {
+            myList.forEach((el)=>{
+                expect(dep.departments).to.include(el)
+            })
+        })  
     };
 
 
-    verifyElementsProgramsFeatures(progm, prog) {
-        
-        cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'programs & features')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'30']").each(($text) => {
-            // cy.log($text.text());
-            var i;
-            const elArr = [];
-            elArr.push($text.text());
-            for (i = 0; i < elArr.length; i++) {
-                cy.log("My array element : " + elArr);
-                switch (progm) {
-                    case (progm==='Gift Cards'):
-                        cy.expect(elArr[i]).to.equal(prog.giftC);
-                        break;
-
-                    case (progm==='Shop By Interest'):
-                        cy.expect(elArr[i]).to.equal(prog.shopBy);
-                        break;
-
-                    case (progm ==='Amazon Live'):
-                        cy.expect(elArr[i]).to.equal(prog.amazonLive);
-                        break;
-
-                    case (progm === 'International Shopping'):
-                        cy.expect(elArr[i]).to.equal(prog.intShop);
-                        break;
-
-                }
-
-            }
-
-        });
+    verifyElementsProgramsFeatures(prog) {
+        var myListProg = [];
+        cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'programs & features')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'30']")
+        .each(($text) => {
+        myListProg.push($text.text());
+        }).then(()=>{
+            myListProg.forEach((el)=>{
+                expect(prog.programs).to.include(el)
+            })
+        })
     };
+
+    verifyElementsNotPresent(dep){
+        var myListNotPresent=[];
+        cy.xpath("//div[@id='hmenu-content']//child::div[contains(text(), 'shop by department')]//parent::li//following-sibling::li//a[@class='hmenu-item' and @data-menu-id<'9']")
+        .each(($text)=>{
+            myListNotPresent.push($text.text());
+        }).then(()=>{
+            myListNotPresent.forEach((el)=>{
+                expect(dep.negativeScenario).to.include(el);
+            })
+        })
+
+    }
 }
 
 export default hamburguerMenu_PO;

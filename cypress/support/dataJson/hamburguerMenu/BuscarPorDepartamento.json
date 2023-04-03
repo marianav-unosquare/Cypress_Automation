@@ -1,7 +1,8 @@
 {
-    "electronics": "Electronics",
-    "computers": "Computers",
-    "smartHome": "Smart Home",
-    "artsCrafts": "Arts & Crafts",
-    "testingEl": "TestingElement"
+    "departments": [
+    "Electronics", "Computers", "Smart Home", "Arts & Crafts"],
+    "negativeScenario": [
+        "TestingElement",
+        "SmartHome"
+    ]
 }

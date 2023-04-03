@@ -25,7 +25,8 @@ module.exports = defineConfig({
       first_name: "Sarah"
     },
     screenshotOnRunFailure: true,
-    trashAssetsBeforeRuns: true
+    trashAssetsBeforeRuns: true,
+    video:false
   },
  
 });

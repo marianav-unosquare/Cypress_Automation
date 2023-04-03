@@ -1,6 +1,4 @@
 {
-    "giftC": "Gift Cards",
-    "shopBy": "Shop by Interest",
-    "amazonLive": "Amazon Live",
-    "intShop": "International Shopping"
+    "programs": [
+    "Gift Cards", "Shop by Interest", "Amazon Live", "International Shopping"]
 }

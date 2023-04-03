@@ -1,22 +1,12 @@
 @Hamburguer
 Feature: Verify Amazon's Hamburguer Left Menu
 
-Scenario Outline: Verify Hamburguer Left Menu
+Scenario: Verify Hamburguer Left Menu
 Given I access Amazon landing page
 When I click on the left Menu
-Then I verify that the elements on buscar por deparamento <dept> and Programa y funcionalidades <progm> are visible on the menu section
-Examples:
-|dept                 |progm                  |
-|Electronics          |Gift Cards             |
-|Computers            |Shop by Interest       |
-|Smart Home           |Amazon Live            |
-|Arts & Crafts        |International Shopping |
+Then I verify that the elements on buscar por deparamento and Programa y funcionalidades are visible on the menu section
 
-Scenario Outline: Verify Hamburguer Left Menu - Negative Scenario
+Scenario: Verify Hamburguer Left Menu - Negative Scenario
 Given I access Amazon landing page
 When I click on the left Menu
-Then I verify that the elements on buscar por deparamento <dept> and Programa y funcionalidades <progm> are visible on the menu section
-
-Examples:
-|dept                 |progm                  |
-|testElement          |testElement            |
+Then I verify that the elements do not contain an item

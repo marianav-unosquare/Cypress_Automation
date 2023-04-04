@@ -40,3 +40,19 @@
 // User Assertions to verify the items are visible
 // Implement a List and a Loop
 // Take a Screenshot for the failed scenario
+//------------------------------------------------------------------------------------------------------
+
+// API Testing:
+
+// Create 2 scripts for NASA Apis
+
+// Go to https://api.nasa.gov/
+// You will have to generate an API Key that you should pass using an external data file
+// Select 2 GET Requests and validate Response code == 200
+// Validate response body
+
+
+// Create 3 Scripts for https://reqres.in/
+
+// Select 1 POST, 1 PUT and 1 DELETE
+// Validate response codes == 200

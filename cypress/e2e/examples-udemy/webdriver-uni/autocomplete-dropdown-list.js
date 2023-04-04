@@ -25,7 +25,6 @@ describe('Verify Autocomplete dropdown list via webdriver uni', () => {
                 if (prod == productToSelect) {
                     //$el.click();
                     $el.trigger('click')
-
                     cy.get('#submit-button').click();
                     cy.url().should('include', productToSelect);
                 }

@@ -1,7 +1,6 @@
 import { Before, Given, When, Then } from "cypress-cucumber-preprocessor/steps"
 
 let stub;
-var apiToken= '5ZpzNnl9vn4lC5f5xAXmvXWE2fzXETV4SdRfrpp6';
 var myUrl;
 
 Before(()=>{

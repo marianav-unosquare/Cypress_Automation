@@ -1,0 +1,5 @@
+{
+    "accessToken": "SLdT7IAKy0MGPUhMQSAcOgqKPyIBgLWmonQqEiKU",
+    "endpoint": "planetary/apod?api_key=",
+    "baseUrl": "https://api.nasa.gov/"
+}

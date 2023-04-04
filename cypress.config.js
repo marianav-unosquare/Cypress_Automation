@@ -23,7 +23,8 @@ module.exports = defineConfig({
     env:{
       webdriveruni_homepage: "https://www.webdriveruniversity.com",
       first_name: "Sarah"
-    }
+    },
+    failOnStatusCode: false
   },
  
 });

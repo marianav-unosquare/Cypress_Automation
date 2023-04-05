@@ -1,33 +1,56 @@
 import { Before, Given, When, Then } from "cypress-cucumber-preprocessor/steps"
+const asteroidNeo = require('../../fixtures/Asteroids-NeoWs.json')
 
 let stub;
 var myUrl;
+var result;
 
-Before(()=>{
-    cy.log("Executing before step");
-    //Initializa my stub variable
-    stub = cy.stub();
-    //Initialize my fixture file
+Before(() => {
+    //Initialize my fixture file for APOD
     cy.fixture('nasa-APOD').as('apod');
-
-});
-
-Given('I enter to the APOD endpoint on the NASA website using my access token', ()=>{
-    cy.get('@apod').then((apod)=>{
-    myUrl=(apod.baseUrl + apod.endpoint + apod.accessToken);
-    cy.log(myUrl);
-    cy.request(myUrl);
+    cy.get('@apod').then((apod) => {
+        myUrl = apod.baseUrl + apod.endpoint + apod.accessToken;
     });
 });
 
-When('I send a GET request', ()=>{
-
+Given('I access to the APOD endpoint on the NASA website using my access token', () => {
+    result = cy.request(myUrl);
+    result.its("status").should("equal", 200);
 });
 
-Then('I validate status code 200', ()=>{
-
+Then('I validate status code 200 and I validate status body', () => {
+    result = cy.request(myUrl);
+    result.its("status").should("equal", 200);
+    cy.request({
+        method: "GET",
+        url: myUrl,
+        headers:
+            { accept: "application/json" }
+    }).then(response => {
+    var body = JSON.parse(JSON.stringify(response.body))//Convertir mi response body a un JSON
+    cy.log("My body : " + body);
+    expect(body).has.property("title", "Rubin's Galaxy")
+    expect(body.date).to.include('2023-04')
+    });
 });
 
-And('I validate status body',()=>{
 
+Given('I access to the Asteroids - NeoWs endpoint', ()=>{
+    myUrl=asteroidNeo.baseUrl+asteroidNeo.endpoint+asteroidNeo.accessToken;
+    result=cy.request(asteroidNeo.baseUrl+asteroidNeo.endpoint+asteroidNeo.accessToken);
+    cy.log(result);
+});
+
+Then('I validate status code 200 and I validate status body Asteroids', ()=>{
+    cy.request({
+        method: "GET",
+        url: myUrl,
+        headers:
+            { accept: "application/json" }
+    }).then(response => {
+    var body = JSON.parse(JSON.stringify(response.body))
+    cy.log("My body : " + body);
+    expect(body).has.property("page")
+    expect(body.near_earth_objects[0].id).to.include(2000433)
+    });
 });

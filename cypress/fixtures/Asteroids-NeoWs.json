@@ -1,0 +1,5 @@
+{
+    "baseUrl":"https://api.nasa.gov/",
+    "endpoint": "neo/rest/v1/neo/browse?api_key=",
+    "accessToken" : "SLdT7IAKy0MGPUhMQSAcOgqKPyIBgLWmonQqEiKU"
+}

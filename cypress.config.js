@@ -24,7 +24,7 @@ module.exports = defineConfig({
       webdriveruni_homepage: "https://www.webdriveruniversity.com",
       first_name: "Sarah"
     },
-    failOnStatusCode: false
+    failOnStatusCode: false,
   },
  
 });

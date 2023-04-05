@@ -1,0 +1,26 @@
+{
+    "baseUrl": "https://reqres.in",
+    "get":{
+        "request": "/api/users/2",
+        "method": "GET"},
+    "post":{
+        "request":"/api/users",
+        "method": "POST",
+        "body": {
+            "name": "marcel proust",
+            "job": "author"
+            }
+        },
+    "put": {
+        "request": "/api/users/2",
+        "method":"PUT",
+        "body":{
+                "name": "morpheus",
+                "job": "zion resident"
+            }
+        },
+    "delete": {
+        "request":"/api/users/2",
+        "method": "DELETE"
+    }
+}

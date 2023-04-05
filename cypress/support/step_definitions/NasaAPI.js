@@ -9,7 +9,7 @@ Before(() => {
     //Initialize my fixture file for APOD
     cy.fixture('nasa-APOD').as('apod');
     cy.get('@apod').then((apod) => {
-        myUrl = apod.baseUrl + apod.endpoint + apod.accessToken;
+    myUrl = apod.baseUrl + apod.endpoint + apod.accessToken;
     });
 });
 

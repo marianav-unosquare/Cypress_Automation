@@ -11,5 +11,5 @@ Scenario Outline: Create a script for NASA API testing using a GET request on As
 Given I send a Get request to the Asteroids - NeoWs endpoint
 Then I validate status code 200 and I validate status body Asteroids has id <id>
 Examples:
-|id|
+|id     |
 |2000433|

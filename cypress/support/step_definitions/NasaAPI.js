@@ -3,6 +3,7 @@ const asteroidNeo = require('../../fixtures/Asteroids-NeoWs.json')
 
 var myUrl;
 var result;
+var request;
 
 Before(() => {
     //Initialize my fixture file for APOD
@@ -20,7 +21,7 @@ Given('I send a Get request to the APOD endpoint on the NASA website using my ac
 Then(/^I validate status code 200 and I validate status body has correct ([^"]*), ([^"]*) and ([^"]*)$/, (property, description, date) => {
     result = cy.request(myUrl);
     result.its("status").should("equal", 200);
-    cy.request({
+    request = cy.request({
         method: "GET",
         url: myUrl,
         headers:

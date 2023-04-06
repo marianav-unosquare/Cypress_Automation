@@ -1,0 +1,10 @@
+{
+    "baseUrl":"https://api.nasa.gov/",
+    "accessToken" : "SLdT7IAKy0MGPUhMQSAcOgqKPyIBgLWmonQqEiKU",
+    "asteroids":{
+    "request": "neo/rest/v1/neo/browse?api_key="
+    }, 
+    "apod":{
+    "request": "planetary/apod?api_key="
+    }
+}

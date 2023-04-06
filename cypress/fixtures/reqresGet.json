@@ -12,7 +12,7 @@
             }
         },
     "put": {
-        "request": "/api/users/2",
+        "request": "/api/users/",
         "method":"PUT",
         "body":{
                 "name": "morpheus",
@@ -20,7 +20,7 @@
             }
         },
     "delete": {
-        "request":"/api/users/2",
+        "request":"/api/users/",
         "method": "DELETE"
     }
 }

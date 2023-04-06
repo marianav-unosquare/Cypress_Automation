@@ -6,12 +6,12 @@ Then I validate the request was successful with 200 status code
 
 Scenario: Do a Post Request on Reqres
 Given I send a POST request to Reqres API
-Then I validate the request was successful with 201 status code
+Then I validate the POST request was successful with 201 status code
 
 Scenario: Do a Put Request on Reqres
 Given I send a Put request to Reqres API
 Then I validate the put request was successful with 200 status code
 
 Scenario: Do a Delete Request on Reqres
-Given I send a Delete equest to Reqres API
-Then I validate the request was successful with 204 status code
+Given I send a Delete request to Reqres API
+Then I validate the Delete request was successful with 204 status code

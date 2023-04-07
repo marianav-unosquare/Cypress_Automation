@@ -5,7 +5,7 @@ Given I send a Get request to the APOD endpoint on the NASA website using my acc
 Then I validate status code 200 and I validate status body has correct <property>, <description> and <date>
 Examples:
 |property| description           |date   |
-|title   |Terran 1 Burns Methalox|2023-04|
+|title   |Rigel Wide             |2023-04|
 
 Scenario Outline: Create a script for NASA API testing using a GET request on Asteroids - NeoWs
 Given I send a Get request to the Asteroids - NeoWs endpoint

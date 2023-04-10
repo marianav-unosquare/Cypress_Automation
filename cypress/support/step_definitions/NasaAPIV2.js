@@ -32,7 +32,6 @@ Then(/^I validate status code 200 and I validate that the status body Asteroids 
     // let body = JSON.parse(JSON.stringify(response.body))
     cy.log(response.body);
     expect(response.body.near_earth_objects[0]).has.property(property)
-    cy.log(response.body.near_earth_objects[0])
     expect(response.body.near_earth_objects[0].id).to.include(id)
 
     }) 

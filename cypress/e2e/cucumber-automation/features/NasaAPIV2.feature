@@ -6,7 +6,7 @@ When I send a GET request on the endpoint <endpoint>
 Then I validate status code 200 and I validate that the status body has correct <property>, <description> and <date>
 Examples:
 |property| description           |date   | endpoint                       |
-|title   |Rigel Wide             |2023-04|planetary/apod?api_key=         |
+|title   |IC 2944: The Running Chicken Nebula             |2023-04|planetary/apod?api_key=         |
 
 Scenario Outline: I want to test Asteroids Get Request
 Given I access Nasa API
